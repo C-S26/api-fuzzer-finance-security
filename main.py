@@ -17,6 +17,8 @@ def run_fuzzer():
           print(f"{result}\n")
         else:
           print(f"Result: {result}\n")
+        log(payload, result)
+        
 
 if __name__ == "__main__":
     run_fuzzer()
