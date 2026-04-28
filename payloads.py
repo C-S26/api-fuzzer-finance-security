@@ -1,5 +1,5 @@
-import random 
-import string 
+import random
+import string
 
 def get_payloads():
     return [
@@ -8,7 +8,20 @@ def get_payloads():
         "!@#$%^&*()",
         "",
         None,
+
         str(-999999999),
         str(999999999999999),
-        "../../etc/passwd"
+        "0",
+
+        "../../etc/passwd",
+        "../admin",
+
+        "{invalid:json}",
+        "null",
+        "undefined",
+
+        "'; DROP TABLE users; --",
+        "<script>alert(1)</script>",
+
+        ''.join(random.choices(string.ascii_letters + string.digits, k=50))
     ]

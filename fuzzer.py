@@ -1,13 +1,16 @@
 import requests
- 
+
 def send_request(url, payload):
     try:
+        safe_payload = "" if payload is None else payload
+
         data = {
-            "amount":payload,
-            "account_id":payload
+            "account_id": str(safe_payload),
+            "amount": str(safe_payload)
         }
 
-        response = requests.post(url, json=data, timeout=5)
+        response = requests.post(url, json=data, timeout=3)
         return response
+
     except Exception as e:
-        return str(e)
+        return f"Request Failed: {str(e)}"
